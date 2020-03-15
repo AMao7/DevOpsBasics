@@ -118,4 +118,59 @@ Vagrant.configure("2") do |config|
 end
 ````
 
+### Reverse Proxy Nginix
+- Removing port from website to make it more user friendly
+- Remove port 3000 from www.development.local:3000/posts
+
+### Making Slave Node:
+1. Vagrant file:
+````
+config.vm.define "jenkinsslave" do |jenkinsslave|
+    jenkinsslave.vm.box = "ubuntu/bionic64"
+      jenkinsslave.vm.network "private_network", ip: "192.168.10.200"
+    jenkinsslave.hostsupdater.aliases = ["localhost:8080 "]
+    jenkinsslave.vm.synced_folder "environment/jenkinsslave", "/home/ubuntu/jenkins"
+    jenkinsslave.vm.provision "shell", path: "environment/jenkinsslave/provision.sh", privileged: false
+    jenkinsslave.vm.provider "virtualbox" do |v|
+      v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+    end
+  end
+````
+- Provision file:
+````
+#!/bin/bash
+
+# Update the sources list
+sudo apt-get update -y
+
+# upgrade any packages available
+sudo apt-get upgrade -y
+
+# install git
+sudo apt-get install git -y
+
+# install nodejs
+sudo apt-get install python-software-properties -y
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+sudo apt-get install nodejs 
+
+# install pm2
+sudo npm install pm2 -g
+sudo apt-get install openjdk-8-jre-headless -y
+
+sudo apt-get install nginx -y
+
+# finally, restart the nginx service so the new config takes hold
+sudo service nginx restart
+
+sudo cat /vagrant/environment/jenkinsslave/jenkin_key.pub >> /home/vagrant/.ssh/authorized_keys
+````
+- Make sure to have public key at location
+- Private key is given to jenkins
+- ssh -i cat /vagrants/environment/jenkinsslave/jenkin_key vagrant@192.168.10.200 to connect the key
+
+
+
+
 

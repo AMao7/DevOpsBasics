@@ -1,79 +1,79 @@
-## Introduction to DevOps
+    ## Introduction to DevOps
 
-### What is DevOps?
+    ### What is DevOps?
 
-- Set of practises in software development from operation to production (higher quality and shorter time)
-- Collaboration of Dev and Ops
-- CI, CD and CD
-- Automation through monitoring and testing
-- Cross-functional teams (culture)
-- Shorter lifecycle and higher quality for development
-- Turning challenges into benefits
+    - Set of practises in software development from operation to production (higher quality and shorter time)
+    - Collaboration of Dev and Ops
+    - CI, CD and CD
+    - Automation through monitoring and testing
+    - Cross-functional teams (culture)
+    - Shorter lifecycle and higher quality for development
+    - Turning challenges into benefits
 
-### Four pillars of DevOps
-- Ease of use
-- Flexibility
-- Robustness
-- Costs
+    ### Four pillars of DevOps
+    - Ease of use
+    - Flexibility
+    - Robustness
+    - Costs
 
 
-### DevOps value (CAMS)
-- Collaboration
-- Measurement
-- Automation
-- Culture
+    ### DevOps value (CAMS)
+    - Collaboration
+    - Measurement
+    - Automation
+    - Culture
 
-### DevOps Principles
-- Customer-centric action
-- End to end responsibility
-- CI, CD and CD
-- Automate everything
-- Work as one team
-- Monitor and test everything
+    ### DevOps Principles
+    - Customer-centric action
+    - End to end responsibility
+    - CI, CD and CD
+    - Automate everything
+    - Work as one team
+    - Monitor and test everything
 
-### Stages in DevOps Lifecycle
-- Continuous Development
-- Continuous Testing
-- Continuous Intergration (tests of merged branches)
-- Continuous Deployment
-- Continuous Monitoring
+    ### Stages in DevOps Lifecycle
+    - Continuous Development
+    - Continuous Testing
+    - Continuous Intergration (tests of merged branches)
+    - Continuous Deployment
+    - Continuous Monitoring
 
-### DevOps tool
-- Code = Git, GitHub, GitLab, Pycharm
-- Build = Maven, Gradle , Apache
-- Test = JUnit and SE
-- Release = Jenkins and Bamboo
-- Deploy = Puppet, CHEF, ANSIBLE and SALTSTACK
-- Operate
-- Monitor = Nagios, Splunk and Sensu
+    ### DevOps tool
+    - Code = Git, GitHub, GitLab, Pycharm
+    - Build = Maven, Gradle , Apache
+    - Test = JUnit and SE
+    - Release = Jenkins and Bamboo
+    - Deploy = Puppet, CHEF, ANSIBLE and SALTSTACK
+    - Operate
+    - Monitor = Nagios, Splunk and Sensu
 
-### DevOps Implementation
-- Cloud platform = AWS, GCP and Azure
-- Infrastucture Architecture = Virtualization and Containerization (Docker)
-- DevOps Implementation = IaC, IaaS, Iaap (service) and Iaap (product)
-- Difference between virtual environments (takes resources even if it isnt using it) 
-vs containers (no allocation of resources needed, just takes what it needs)
+    ### DevOps Implementation
+    - Cloud platform = AWS, GCP and Azure
+    - Infrastucture Architecture = Virtualization and Containerization (Docker)
+    - DevOps Implementation = IaC, IaaS, Iaap (service) and Iaap (product)
+    - Difference between virtual environments (takes resources even if it isnt using it)
+    vs containers (no allocation of resources needed, just takes what it needs)
 
-### Development Environment
-- Standardised
-- One for one application
-- Close to production environment 
-- Robust, fast and easy to rebuild
-- Portable, decoupled from hardware or platform (VM and Container)
+    ### Development Environment
+    - Standardised
+    - One for one application
+    - Close to production environment
+    - Robust, fast and easy to rebuild
+    - Portable, decoupled from hardware or platform (VM and Container)
 
-### Building a development environment
-- Technologies (Vagrant and VM)
-- Architecture (Windows, Vagrant, VM and Dev Environments)
-  - Dev Environment such as Nginx, Node.js, MongoDB and Ruby
+    ### Building a development environment
+    - Technologies (Vagrant and VM)
+    - Architecture (Windows, Vagrant, VM and Dev Environments)
+      - Dev Environment such as Nginx, Node.js, MongoDB and Ruby
    
 ### Making new environment
 1. Vagrant init (ubuntu/bionic64) - to initalise vagrantfile for ubuntu box
 2. Vagrant up - makes the virtual machine 
 3. Vagrant ssh - to make key (sync folder to the root vagrant folder)
-4. sudo apt-get update - to update software inventory 
-5. sudo apt-get upgrade -y - says yes automatically to upgrades
-6. sudo apt-get install nginx -y - to install open source webserver
-7. sudo systemctl start nginx - to start nginx on new system
+        4. sudo apt-get update - to update software inventory
+        5. sudo apt-get upgrade -y - says yes automatically to upgrades
+        6. sudo apt-get install nginx -y - to install open source webserver
+        7. sudo systemctl start nginx - to start nginx on new system
 8. ps aux | grep nginx 
 9. wget 127.0.0.1:80 - connects to web (port number 80)
  - ifconfig  = finds out about the settings of the vm
